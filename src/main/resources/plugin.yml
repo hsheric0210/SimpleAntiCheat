@@ -1,0 +1,11 @@
+name: simpleanticheat
+version: a1.0
+authors: [ eric0210 ]
+
+main: com.eric0210.sac.SimpleAntiCheatPlugin
+
+commands:
+    simpleanticheat:
+        description: Main plugin controls
+        aliases:
+            sac

@@ -1,3 +1,14 @@
+.idea/*
+!.idea/inspectionProfiles/
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.project
+/bin/
+/out/
+/.settings/
+
 # Ignore Gradle project-specific cache directory
 .gradle
 
