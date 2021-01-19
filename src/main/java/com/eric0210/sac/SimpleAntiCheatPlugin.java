@@ -4,8 +4,12 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Optional;
+
+@SuppressWarnings("unused")
 public final class SimpleAntiCheatPlugin extends JavaPlugin
 {
+	private static ISimpleAntiCheat sac;
 	public SimpleAntiCheatPlugin()
 	{
 	}
@@ -18,16 +22,17 @@ public final class SimpleAntiCheatPlugin extends JavaPlugin
 	@Override
 	public void onEnable()
 	{
-		// TODO: 이벤트 핸들러 등록
+		sac = new SimpleAntiCheat(this, getDataFolder());
 	}
 
 	@Override
 	public void onDisable()
 	{
+		Optional.ofNullable(sac).ifPresent(ISimpleAntiCheat::unload);
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
+	public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args)
 	{
 		return false;
 	}

@@ -8,6 +8,7 @@ import com.eric0210.sac.checks.Check;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -21,11 +22,11 @@ import org.spigotmc.event.entity.EntityMountEvent;
 {
 		"WeakerAccess", "CollectionWithoutInitialCapacity", "PublicStaticCollectionField"
 })
-public class GlobalEventListener
+public class GlobalEventListener implements Listener
 {
-	public static final Queue<EventHandlerData> onEntityDamage = new ArrayDeque<>();
-	public static final Queue<EventHandlerData> onEntityDamageByEntity = new ArrayDeque<>();
-	public static final Queue<EventHandlerData> onEntityDamageByBlock = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onEntityDamage = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onEntityDamageByEntity = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onEntityDamageByBlock = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onEntityDamage(final EntityDamageEvent e)
@@ -43,7 +44,7 @@ public class GlobalEventListener
 			execute(onEntityDamageByBlock, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerAnimation = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerAnimation = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerAnimation(final PlayerAnimationEvent e)
@@ -51,8 +52,8 @@ public class GlobalEventListener
 		execute(onPlayerAnimation, e);
 	}
 
-	public static final Queue<EventHandlerData> onEntityDeath = new ArrayDeque<>();
-	public static final Queue<EventHandlerData> onPlayerDeath = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onEntityDeath = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerDeath = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onEntityDeath(final EntityDeathEvent e)
@@ -70,7 +71,7 @@ public class GlobalEventListener
 		}
 	}
 
-	public static final Queue<EventHandlerData> onEntityTarget = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onEntityTarget = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onEntityTarget(final EntityTargetEvent e)
@@ -78,7 +79,7 @@ public class GlobalEventListener
 		execute(onEntityTarget, e);
 	}
 
-	public static final Queue<EventHandlerData> onFoodLevelChange = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onFoodLevelChange = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onFoodLevelChangeEvent(final FoodLevelChangeEvent e)
@@ -86,7 +87,7 @@ public class GlobalEventListener
 		execute(onFoodLevelChange, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerTeleport = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerTeleport = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerTeleport(final PlayerTeleportEvent e)
@@ -100,7 +101,7 @@ public class GlobalEventListener
 		execute(onPlayerTeleport, e);
 	}
 
-	public static final Queue<EventHandlerData> onEntityRegainHealth = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onEntityRegainHealth = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onEntityRegainHealth(final EntityRegainHealthEvent e)
@@ -108,7 +109,7 @@ public class GlobalEventListener
 		execute(onEntityRegainHealth, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerDropItem = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerDropItem = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerDropItem(final PlayerDropItemEvent e)
@@ -116,7 +117,7 @@ public class GlobalEventListener
 		execute(onPlayerDropItem, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerRespawn = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerRespawn = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerRespawnEvent(final PlayerRespawnEvent e)
@@ -127,7 +128,7 @@ public class GlobalEventListener
 		execute(onPlayerRespawn, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerInteract = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerInteract = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerInteract(final PlayerInteractEvent e)
@@ -135,7 +136,7 @@ public class GlobalEventListener
 		execute(onPlayerInteract, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerMove = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerMove = new ArrayDeque<>();
 
 	@EventHandler(priority = EventPriority.HIGH)
 	public final void onPlayerMoveEvent(final PlayerMoveEvent e)
@@ -222,7 +223,7 @@ public class GlobalEventListener
 		execute(onPlayerMove, e);
 	}
 
-	public static final Queue<EventHandlerData> onProjectileHit = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onProjectileHit = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onProjectileHit(final ProjectileHitEvent e)
@@ -230,7 +231,7 @@ public class GlobalEventListener
 		execute(onProjectileHit, e);
 	}
 
-	public static final Queue<EventHandlerData> onProjectileLaunch = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onProjectileLaunch = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onProjectileLaunch(final ProjectileLaunchEvent e)
@@ -238,7 +239,7 @@ public class GlobalEventListener
 		execute(onProjectileLaunch, e);
 	}
 
-	public static final Queue<EventHandlerData> onBlockPlace = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onBlockPlace = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onBlockPlace(final BlockPlaceEvent e)
@@ -246,7 +247,7 @@ public class GlobalEventListener
 		execute(onBlockPlace, e);
 	}
 
-	public static final Queue<EventHandlerData> onSignChange = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onSignChange = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onSignChange(final SignChangeEvent e)
@@ -254,7 +255,7 @@ public class GlobalEventListener
 		execute(onSignChange, e);
 	}
 
-	public static final Queue<EventHandlerData> onBlockBreak = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onBlockBreak = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onBlockBreak(final BlockBreakEvent e)
@@ -262,7 +263,7 @@ public class GlobalEventListener
 		execute(onBlockBreak, e);
 	}
 
-	public static final Queue<EventHandlerData> onBlockDamage = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onBlockDamage = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onBlockDamage(final BlockDamageEvent e)
@@ -270,7 +271,7 @@ public class GlobalEventListener
 		execute(onBlockDamage, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerItemConsume = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerItemConsume = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerItemConsume(final PlayerItemConsumeEvent e)
@@ -278,7 +279,7 @@ public class GlobalEventListener
 		execute(onPlayerItemConsume, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerJoin = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerJoin = new ArrayDeque<>();
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public final void onPlayerJoin(final PlayerJoinEvent e)
@@ -293,7 +294,7 @@ public class GlobalEventListener
 		execute(onPlayerJoin, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerQuit = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerQuit = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerQuit(final PlayerQuitEvent e)
@@ -302,7 +303,7 @@ public class GlobalEventListener
 		execute(onPlayerQuit, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerInteractEntity = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerInteractEntity = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerInteractEntity(final PlayerInteractEntityEvent e)
@@ -310,7 +311,7 @@ public class GlobalEventListener
 		execute(onPlayerInteractEntity, e);
 	}
 
-	public static final Queue<EventHandlerData> onAsyncPlayerChat = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onAsyncPlayerChat = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onAsyncPlayerChat(final AsyncPlayerChatEvent e)
@@ -318,7 +319,7 @@ public class GlobalEventListener
 		execute(onAsyncPlayerChat, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerKick = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerKick = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerKick(final PlayerKickEvent e)
@@ -326,7 +327,7 @@ public class GlobalEventListener
 		execute(onPlayerKick, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerSneak = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerSneak = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerSneak(final PlayerToggleSneakEvent e)
@@ -334,7 +335,7 @@ public class GlobalEventListener
 		execute(onPlayerSneak, e);
 	}
 
-	public static final Queue<EventHandlerData> onInventoryClick = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onInventoryClick = new ArrayDeque<>();
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public final void onInventoryClick(final InventoryClickEvent e)
@@ -342,7 +343,7 @@ public class GlobalEventListener
 		execute(onInventoryClick, e);
 	}
 
-	public static final Queue<EventHandlerData> onInventoryOpen = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onInventoryOpen = new ArrayDeque<>();
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public final void onInventoryOpen(final InventoryOpenEvent e)
@@ -350,7 +351,7 @@ public class GlobalEventListener
 		execute(onInventoryOpen, e);
 	}
 
-	public static final Queue<EventHandlerData> onInventoryClose = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onInventoryClose = new ArrayDeque<>();
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public final void onInventoryClose(final InventoryCloseEvent e)
@@ -358,7 +359,7 @@ public class GlobalEventListener
 		execute(onInventoryClose, e);
 	}
 
-	public static final Queue<EventHandlerData> onInventoryPickupItem = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onInventoryPickupItem = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onInventoryPickupItem(final InventoryPickupItemEvent e)
@@ -366,7 +367,7 @@ public class GlobalEventListener
 		execute(onInventoryPickupItem, e);
 	}
 
-	public static final Queue<EventHandlerData> onInventoryInteract = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onInventoryInteract = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onInventoryInteract(final InventoryInteractEvent e)
@@ -374,7 +375,7 @@ public class GlobalEventListener
 		execute(onInventoryInteract, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerLogin = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerLogin = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerLogin(final PlayerLoginEvent e)
@@ -382,7 +383,7 @@ public class GlobalEventListener
 		execute(onPlayerLogin, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerPortal = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerPortal = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerPortal(final PlayerPortalEvent e)
@@ -390,7 +391,7 @@ public class GlobalEventListener
 		execute(onPlayerPortal, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerLevelChange = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerLevelChange = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerLevelChange(final PlayerLevelChangeEvent e)
@@ -398,7 +399,7 @@ public class GlobalEventListener
 		execute(onPlayerLevelChange, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerExpChange = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerExpChange = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerExpChange(final PlayerExpChangeEvent e)
@@ -406,7 +407,7 @@ public class GlobalEventListener
 		execute(onPlayerExpChange, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerEmptyBucket = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerEmptyBucket = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerEmptyBucket(final PlayerBucketEmptyEvent e)
@@ -414,7 +415,7 @@ public class GlobalEventListener
 		execute(onPlayerEmptyBucket, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerFillBucket = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerFillBucket = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerFillBucket(final PlayerBucketFillEvent e)
@@ -422,7 +423,7 @@ public class GlobalEventListener
 		execute(onPlayerFillBucket, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerEditBook = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerEditBook = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onEditBook(final PlayerEditBookEvent e)
@@ -430,7 +431,7 @@ public class GlobalEventListener
 		execute(onPlayerEditBook, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerFish = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerFish = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerFish(final PlayerFishEvent e)
@@ -438,7 +439,7 @@ public class GlobalEventListener
 		execute(onPlayerFish, e);
 	}
 
-	public static final Queue<EventHandlerData> onEntityShootBow = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onEntityShootBow = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onEntityShootBow(final EntityShootBowEvent e)
@@ -446,7 +447,7 @@ public class GlobalEventListener
 		execute(onEntityShootBow, e);
 	}
 
-	public static final Queue<EventHandlerData> onEntityExplode = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onEntityExplode = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onEntityExplode(final EntityExplodeEvent e)
@@ -454,7 +455,7 @@ public class GlobalEventListener
 		execute(onEntityExplode, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerItemHeld = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerItemHeld = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerItemHeld(final PlayerItemHeldEvent e)
@@ -462,7 +463,7 @@ public class GlobalEventListener
 		execute(onPlayerItemHeld, e);
 	}
 
-	public static final Queue<EventHandlerData> onPlayerChangeWorld = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onPlayerChangeWorld = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onPlayerItemHeld(final PlayerChangedWorldEvent e)
@@ -471,7 +472,7 @@ public class GlobalEventListener
 		execute(onPlayerChangeWorld, e);
 	}
 
-	public static final Queue<EventHandlerData> onVelocity = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onVelocity = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onVelocity(final PlayerVelocityEvent e)
@@ -479,7 +480,7 @@ public class GlobalEventListener
 		execute(onVelocity, e);
 	}
 
-	public static final Queue<EventHandlerData> onMount = new ArrayDeque<>();
+	public static final Queue<EventListenerData> onMount = new ArrayDeque<>();
 
 	@EventHandler
 	public final void onEntityMount(final EntityMountEvent e)
@@ -487,14 +488,17 @@ public class GlobalEventListener
 		execute(onMount, e);
 	}
 
-	public final void execute(final Queue<? extends EventHandlerData> queue, final Event e)
+	public final void execute(final Queue<? extends EventListenerData> queue, final Event e)
 	{
-		for (final EventHandlerData handler : queue)
+		for (final EventListenerData handler : queue)
 			try
 			{
 				if (handler.getListener() instanceof Check && !((Check) handler.getListener()).isEnabled())
 					continue;
-				handler.getListener().handleEvent(e, handler.getCondition());
+
+				// handlerEvent()가 true를 리턴했을 경우, 실행을 멈춘다.
+				if (handler.getListener().handleEvent(e, handler.getCondition()))
+					break;
 			}
 			catch (final Throwable t)
 			{
